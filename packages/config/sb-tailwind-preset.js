@@ -19,6 +19,7 @@ module.exports = {
       colors: {
         primary: {
           lightest: "#F4F7FD",
+          light: "hsba(156, 52%, 91%, 1)",
           dark: "#4D69F7",
         },
         emphasis: "#F4F7FD",
@@ -27,9 +28,22 @@ module.exports = {
         muted: "DFE3EB",
         inverted: "var(--cal-bg-inverted)",
         info: "#9EBBF1",
-        success: "hsba(160, 91%, 73%, 1)",
+        success: {
+          DEFAULT: "hsba(160, 91%, 73%, 1)",
+          light: "hsba(156, 52%, 91%, 1)",
+          lightest: "hsba(152, 7%, 99%, 1)",
+          dark: "hsba(160, 91%, 73%, 1)",
+        },
+
         attention: "hsba(38, 85%, 89%, 1)",
-        error: "hsba(350, 74%, 96%, 1)",
+        error: {
+          DEFAULT: "hsba(350, 74%, 96%, 1)",
+          lightest: "hsba(356, 5%, 100%, 1)",
+          light: "hsba(353, 24%, 96%, 1)",
+          dark: "hsba(350, 74%, 96%, 1)",
+          darkest: "hsba(345, 91%, 75%, 1)",
+        },
+
         darkerror: "hsba(345, 91%, 75%, 1)",
         black: "#0A0E15",
         brand: {

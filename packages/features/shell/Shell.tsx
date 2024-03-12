@@ -750,21 +750,21 @@ const NavigationItem: React.FC<{
           href={item.href}
           aria-label={t(item.name)}
           className={classNames(
-            "todesktop:py-[7px] text-default group flex items-center rounded-md px-2 py-1.5 text-sm font-medium transition",
+            "todesktop:py-[7px] group flex items-center rounded-md px-2 py-1.5 font-medium text-black transition",
             item.child ? `[&[aria-current='page']]:!bg-transparent` : `[&[aria-current='page']]:bg-emphasis`,
             isChild
-              ? `[&[aria-current='page']]:text-emphasis [&[aria-current='page']]:bg-emphasis hidden h-8 pl-16 lg:flex lg:pl-11 ${
+              ? `[&[aria-current='page']]:text-primary-dark [&[aria-current='page']]:bg-emphasis hidden h-8 pl-16 lg:flex lg:pl-11 ${
                   props.index === 0 ? "mt-0" : "mt-px"
                 }`
-              : "[&[aria-current='page']]:text-emphasis mt-0.5 text-sm",
+              : "[&[aria-current='page']]:text-primary-dark mt-0.5 ",
             isLocaleReady
-              ? "hover:bg-subtle todesktop:[&[aria-current='page']]:bg-emphasis todesktop:hover:bg-transparent hover:text-emphasis"
+              ? "hover:bg-primary-lightest todesktop:[&[aria-current='page']]:bg-emphasis todesktop:hover:bg-transparent hover:text-primary-dark"
               : ""
           )}
           aria-current={current ? "page" : undefined}>
           {item.icon && (
             <item.icon
-              className="todesktop:!text-blue-500 mr-2 h-4 w-4 flex-shrink-0 rtl:ml-2 md:ltr:mx-auto lg:ltr:mr-2 [&[aria-current='page']]:text-inherit"
+              className="todesktop:!text-primary-dark mr-2 h-4 w-4 flex-shrink-0 rtl:ml-2 md:ltr:mx-auto lg:ltr:mr-2 [&[aria-current='page']]:text-inherit"
               aria-hidden="true"
               aria-current={current ? "page" : undefined}
             />
@@ -899,7 +899,7 @@ function SideBar({ bannersHeight, user }: SideBarProps) {
 
   const bottomNavItems: NavigationItemType[] = [
     {
-      name: "view_public_page",
+      name: "ShareBuilders",
       href: publicPageUrl,
       icon: ExternalLink,
       target: "__blank",
@@ -925,9 +925,15 @@ function SideBar({ bannersHeight, user }: SideBarProps) {
       <aside
         style={{ maxHeight: `calc(100vh - ${bannersHeight}px)`, top: `${bannersHeight}px` }}
         className="todesktop:!bg-transparent border-gray fixed left-0 hidden h-full max-h-screen w-14 flex-col overflow-y-auto overflow-x-hidden border-r bg-white md:sticky md:flex lg:w-56 ">
-        <div class="border-gray border-b py-3 pt-5 text-center">
+        <div class="border-gray flex justify-start gap-4 border-b px-4 py-3 pt-5">
+          <span class="material-symbols-outlined relative top-1">apps</span>
           <Link href="/event-types">
-            <h1 class="text-2xl">Meetings</h1>
+            <div class="flex justify-start gap-2">
+              <span class="from-primary-dark material-symbols-outlined rounded-lg bg-gradient-to-b to-cyan-500 p-1  text-white">
+                call
+              </span>
+              <h1 class="text-xl">Meetings</h1>
+            </div>
           </Link>
         </div>
         <div className="flex h-full flex-col justify-between py-3 lg:pt-4">
@@ -991,8 +997,12 @@ function SideBar({ bannersHeight, user }: SideBarProps) {
 
         <div>
           <Tips />
+          <div class="flex justify-start px-4 py-2">
+            <img className="h-6 w-6 dark:invert" alt="Cal" title="Cal" src="/sb-logo.png" />
+            <div class="px-4">ShareBuilders</div>
+          </div>
           {bottomNavItems.map(({ icon: Icon, ...item }, index) => (
-            <Tooltip side="right" content={t(item.name)} className="lg:hidden" key={item.name}>
+            <Tooltip side="right" content={t(item.name)} className="hidden" key={item.name}>
               <ButtonOrLink
                 id={item.name}
                 href={item.href || undefined}
@@ -1000,6 +1010,7 @@ function SideBar({ bannersHeight, user }: SideBarProps) {
                 target={item.target}
                 className={classNames(
                   "text-left",
+                  "!hidden",
                   "[&[aria-current='page']]:bg-emphasis text-default justify-right group flex items-center rounded-md px-2 py-1.5 text-sm font-medium transition",
                   "[&[aria-current='page']]:text-emphasis mt-0.5 w-full text-sm",
                   isLocaleReady ? "hover:bg-emphasis hover:text-emphasis" : "",
@@ -1138,7 +1149,7 @@ function TopNav() {
     <>
       <nav
         style={isEmbed ? { display: "none" } : {}}
-        className="border-gray bg-default sticky top-0 z-40 flex w-full items-center justify-between border-b bg-opacity-50 px-4 py-1.5 backdrop-blur-lg sm:p-4 ">
+        className="border-gray bg-default sticky top-0 z-40 flex w-full items-center justify-end border-b bg-opacity-50 px-4 py-1.5 backdrop-blur-lg sm:p-4 ">
         <div className="flex items-center gap-2 self-center">
           <span className="hover:bg-muted hover:text-emphasis text-default group flex items-center rounded-full text-sm font-medium">
             <KBarTrigger />

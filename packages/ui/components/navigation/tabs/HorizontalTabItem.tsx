@@ -38,8 +38,10 @@ const HorizontalTabItem = function ({
       shallow={linkShallow}
       scroll={linkScroll}
       className={classNames(
-        isCurrent ? "bg-emphasis text-emphasis" : "hover:bg-subtle hover:text-emphasis text-default",
-        "inline-flex items-center justify-center whitespace-nowrap rounded-[6px] p-2 text-sm font-medium leading-4 transition md:mb-0",
+        isCurrent
+          ? "!border-primary-dark text-primary-dark border-b-2 bg-white"
+          : "text-gray-dark hover:border-primary-dark",
+        "inline-flex items-center justify-center whitespace-nowrap border-b-2 border-white p-2 font-medium leading-4 transition md:mb-0",
         props.disabled && "pointer-events-none !opacity-30",
         props.className
       )}
