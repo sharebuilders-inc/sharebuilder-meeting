@@ -17,22 +17,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: {
+          lightest: "#F4F7FD",
+          dark: "#4D69F7",
+        },
         emphasis: "#F4F7FD",
         default: "#FFFFFF",
-        subtle: "var(--cal-bg-subtle)",
+        subtle: "#DFE3EB",
         muted: "DFE3EB",
         inverted: "var(--cal-bg-inverted)",
-        info: "var(--cal-bg-info)",
-        success: "var(--cal-bg-success)",
-        attention: "var(--cal-bg-attention)",
-        error: "var(--cal-bg-error)",
-        darkerror: "var(--cal-bg-dark-error)",
+        info: "#9EBBF1",
+        success: "hsba(160, 91%, 73%, 1)",
+        attention: "hsba(38, 85%, 89%, 1)",
+        error: "hsba(350, 74%, 96%, 1)",
+        darkerror: "hsba(345, 91%, 75%, 1)",
         black: "#0A0E15",
         brand: {
-          default: "var(--cal-brand,#111827)",
-          emphasis: "var(--cal-brand-emphasis,#101010)",
-          subtle: "var(--cal-brand-subtle,#9CA3AF)",
-          accent: "var(--cal-brand-accent,white)",
+          default: "#4D69F7",
+          emphasis: "#F4F7FD",
+          subtle: "#F5F7FA",
+          accent: "hsba(160, 91%, 73%, 1)",
         },
         gray: {
           50: "#F9FAFB",
@@ -45,6 +49,12 @@ module.exports = {
           700: "#374151",
           800: "#1F2937",
           900: "#111827",
+          darkest: "#1D1E20",
+          darker: "#1D1E20",
+          dark: "#868A91",
+          DEFAULT: "#C9CED6",
+          light: "#DFE3EB",
+          lightest: "#F5F7FA",
         },
         darkgray: {
           50: "#101010",
@@ -89,7 +99,7 @@ module.exports = {
         success: "var(--cal-text-success, #285231)",
         attention: "var(--cal-text-attention, #73321B)",
         error: "var(--cal-text-error, #752522)",
-        brand: "var(--cal-brand-text)",
+        brand: "#4D69F7",
       },
       screens: {
         pwa: { raw: "(display-mode: standalone)" },

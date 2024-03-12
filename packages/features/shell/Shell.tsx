@@ -450,7 +450,7 @@ function UserDropdown({ small }: UserDropdownProps) {
         <button
           data-testid="user-dropdown-trigger-button"
           className={classNames(
-            "hover:bg-emphasis todesktop:!bg-transparent group mx-0 flex w-full cursor-pointer appearance-none items-center rounded-full text-left outline-none transition focus:outline-none focus:ring-0 md:rounded-none lg:rounded",
+            "hover:bg-primary-lightest todesktop:!bg-transparent group mx-0 flex w-full cursor-pointer appearance-none items-center rounded-full text-left outline-none transition focus:outline-none focus:ring-0 md:rounded-none lg:rounded",
             small ? "p-2" : "px-2 py-1.5"
           )}>
           <span
@@ -505,7 +505,10 @@ function UserDropdown({ small }: UserDropdownProps) {
                   <DropdownItem
                     type="button"
                     StartIcon={(props) => (
-                      <UserIcon className={classNames("text-default", props.className)} aria-hidden="true" />
+                      <UserIcon
+                        className={classNames("text-primary-dark", props.className)}
+                        aria-hidden="true"
+                      />
                     )}
                     href="/settings/my-account/profile">
                     {t("my_profile")}
@@ -704,11 +707,11 @@ const { desktopNavigationItems, mobileNavigationBottomItems, mobileNavigationMor
 
 const Navigation = () => {
   return (
-    <nav className="mt-2 flex-1 md:px-2 lg:mt-4 lg:px-0">
+    <nav className="mt-2 flex-1 px-4 ">
       {desktopNavigationItems.map((item) => (
         <NavigationItem key={item.name} item={item} />
       ))}
-      <div className="text-subtle mt-0.5 lg:hidden">
+      <div className="text-subtle mt-0.5 hidden">
         <KBarTrigger />
       </div>
     </nav>
@@ -827,7 +830,7 @@ const MobileNavigationItem: React.FC<{
     <Link
       key={item.name}
       href={item.href}
-      className="[&[aria-current='page']]:text-emphasis hover:text-default text-muted relative my-2 min-w-0 flex-1 overflow-hidden rounded-md !bg-transparent p-1 text-center text-xs font-medium focus:z-10 sm:text-sm"
+      className="[&[aria-current='page']]:text-primary-dark hover:text-default text-muted relative my-2 min-w-0 flex-1 overflow-hidden rounded-md !bg-transparent p-1 text-center text-xs font-medium focus:z-10 sm:text-sm"
       aria-current={current ? "page" : undefined}>
       {item.badge && <div className="absolute right-1 top-1">{item.badge}</div>}
       {item.icon && (
@@ -921,9 +924,14 @@ function SideBar({ bannersHeight, user }: SideBarProps) {
     <div className="relative">
       <aside
         style={{ maxHeight: `calc(100vh - ${bannersHeight}px)`, top: `${bannersHeight}px` }}
-        className="todesktop:!bg-transparent border-muted fixed left-0 hidden h-full max-h-screen w-14 flex-col overflow-y-auto overflow-x-hidden border-r bg-white md:sticky md:flex lg:w-56 lg:px-3">
+        className="todesktop:!bg-transparent border-gray fixed left-0 hidden h-full max-h-screen w-14 flex-col overflow-y-auto overflow-x-hidden border-r bg-white md:sticky md:flex lg:w-56 ">
+        <div class="border-gray border-b py-3 pt-5 text-center">
+          <Link href="/event-types">
+            <h1 class="text-2xl">Meetings</h1>
+          </Link>
+        </div>
         <div className="flex h-full flex-col justify-between py-3 lg:pt-4">
-          <header className="todesktop:-mt-3 todesktop:flex-col-reverse todesktop:[-webkit-app-region:drag] items-center justify-between md:hidden lg:flex">
+          <header className="todesktop:-mt-3 todesktop:flex-col-reverse todesktop:[-webkit-app-region:drag] hidden items-center justify-between md:hidden">
             {orgBranding ? (
               !ENABLE_PROFILE_SWITCHER ? (
                 <Link href="/settings/organizations/profile" className="w-full px-1.5">
@@ -943,10 +951,10 @@ function SideBar({ bannersHeight, user }: SideBarProps) {
               )
             ) : (
               <div data-testid="user-dropdown-trigger" className="todesktop:mt-4 w-full">
-                <span className="hidden lg:inline">
+                <span className="hidden ">
                   <UserDropdown />
                 </span>
-                <span className="hidden md:inline lg:hidden">
+                <span className="hidden">
                   <UserDropdown small />
                 </span>
               </div>
@@ -974,7 +982,7 @@ function SideBar({ bannersHeight, user }: SideBarProps) {
           </header>
 
           {/* logo icon for tablet */}
-          <Link href="/event-types" className="text-center md:inline lg:hidden">
+          <Link href="/event-types" className="hidden">
             <Logo small icon />
           </Link>
 
@@ -1130,12 +1138,9 @@ function TopNav() {
     <>
       <nav
         style={isEmbed ? { display: "none" } : {}}
-        className="bg-muted border-subtle sticky top-0 z-40 flex w-full items-center justify-between border-b bg-opacity-50 px-4 py-1.5 backdrop-blur-lg sm:p-4 md:hidden">
-        <Link href="/event-types">
-          <Logo />
-        </Link>
+        className="border-gray bg-default sticky top-0 z-40 flex w-full items-center justify-between border-b bg-opacity-50 px-4 py-1.5 backdrop-blur-lg sm:p-4 ">
         <div className="flex items-center gap-2 self-center">
-          <span className="hover:bg-muted hover:text-emphasis text-default group flex items-center rounded-full text-sm font-medium lg:hidden">
+          <span className="hover:bg-muted hover:text-emphasis text-default group flex items-center rounded-full text-sm font-medium">
             <KBarTrigger />
           </span>
           <button className="hover:bg-muted hover:text-subtle text-muted rounded-full p-1 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
