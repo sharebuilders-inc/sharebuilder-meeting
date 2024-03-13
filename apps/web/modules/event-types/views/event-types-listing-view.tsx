@@ -401,8 +401,8 @@ export const EventTypeList = ({
     return deleteDialogTypeSchedulingType === SchedulingType.MANAGED ? "_managed" : "";
   };
   return (
-    <div className="bg-default border-subtle mb-16 flex overflow-hidden rounded-md border">
-      <ul ref={parent} className="divide-subtle !static w-full divide-y" data-testid="event-types">
+    <div className="bg-default border-gray mb-16 flex overflow-hidden rounded-md border">
+      <ul ref={parent} className="divide-gray-light !static w-full divide-y" data-testid="event-types">
         {types.map((type, index) => {
           const embedLink = `${group.profile.slug}/${type.slug}`;
           const calLink = `${bookerUrl}/${embedLink}`;
@@ -466,7 +466,7 @@ export const EventTypeList = ({
                               <Tooltip content={t("preview")}>
                                 <Button
                                   data-testid="preview-link-button"
-                                  color="secondary"
+                                  color="minimal"
                                   target="_blank"
                                   variant="icon"
                                   href={calLink}
@@ -476,7 +476,7 @@ export const EventTypeList = ({
 
                               <Tooltip content={t("copy_link")}>
                                 <Button
-                                  color="secondary"
+                                  color="minimal"
                                   variant="icon"
                                   StartIcon={LinkIcon}
                                   onClick={() => {
@@ -489,7 +489,7 @@ export const EventTypeList = ({
                               {isPrivateURLEnabled && (
                                 <Tooltip content={t("copy_private_link_to_event")}>
                                   <Button
-                                    color="secondary"
+                                    color="minimal"
                                     variant="icon"
                                     StartIcon={VenetianMask}
                                     onClick={() => {
@@ -506,7 +506,7 @@ export const EventTypeList = ({
                               <Button
                                 type="button"
                                 variant="icon"
-                                color="secondary"
+                                color="minimal"
                                 StartIcon={MoreHorizontal}
                                 className="ltr:radix-state-open:rounded-r-md rtl:radix-state-open:rounded-l-md"
                               />
@@ -755,11 +755,11 @@ const EventTypeListHeading = ({
       <div>
         <Link
           href={teamId ? `/settings/teams/${teamId}/profile` : "/settings/my-account/profile"}
-          className="text-emphasis font-bold">
+          className="font-bold text-black">
           {profile.name || ""}
         </Link>
         {membershipCount && teamId && (
-          <span className="text-subtle relative -top-px me-2 ms-2 text-xs">
+          <span className="relative -top-px me-2 ms-2 text-xs text-black">
             <Link href={`/settings/teams/${teamId}/members`}>
               <Badge variant="gray">
                 <Users className="-mt-px mr-1 inline h-3 w-3" />

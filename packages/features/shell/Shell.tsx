@@ -466,8 +466,8 @@ function UserDropdown({ small }: UserDropdownProps) {
             />
             <span
               className={classNames(
-                "border-muted absolute -bottom-1 -right-1 rounded-full border bg-green-500",
-                user.away ? "bg-yellow-500" : "bg-green-500",
+                "border-muted bg-success absolute -bottom-1 -right-1 rounded-full border",
+                user.away ? "bg-warning-light" : "bg-success",
                 small ? "-bottom-0.5 -right-0.5 h-2.5 w-2.5" : "-bottom-0.5 -right-0 h-2 w-2"
               )}
             />
@@ -925,14 +925,14 @@ function SideBar({ bannersHeight, user }: SideBarProps) {
       <aside
         style={{ maxHeight: `calc(100vh - ${bannersHeight}px)`, top: `${bannersHeight}px` }}
         className="todesktop:!bg-transparent border-gray fixed left-0 hidden h-full max-h-screen w-14 flex-col overflow-y-auto overflow-x-hidden border-r bg-white md:sticky md:flex lg:w-56 ">
-        <div class="border-gray flex justify-start gap-4 border-b px-4 py-3 pt-5">
-          <span class="material-symbols-outlined relative top-1">apps</span>
+        <div className="border-gray flex justify-start gap-4 border-b px-4 py-3 pt-5">
+          <span className="material-symbols-outlined relative top-1">apps</span>
           <Link href="/event-types">
-            <div class="flex justify-start gap-2">
-              <span class="from-primary-dark material-symbols-outlined rounded-lg bg-gradient-to-b to-cyan-500 p-1  text-white">
+            <div className="flex justify-start gap-2">
+              <span className="from-primary-dark material-symbols-outlined rounded-lg bg-gradient-to-b to-cyan-500 p-1  text-white">
                 call
               </span>
-              <h1 class="text-xl">Meetings</h1>
+              <h1 className="text-xl">Meetings</h1>
             </div>
           </Link>
         </div>
@@ -997,9 +997,9 @@ function SideBar({ bannersHeight, user }: SideBarProps) {
 
         <div>
           <Tips />
-          <div class="flex justify-start px-4 py-2">
+          <div className="flex justify-start px-4 py-2">
             <img className="h-6 w-6 dark:invert" alt="Cal" title="Cal" src="/sb-logo.png" />
-            <div class="px-4">ShareBuilders</div>
+            <div className="px-4">ShareBuilders</div>
           </div>
           {bottomNavItems.map(({ icon: Icon, ...item }, index) => (
             <Tooltip side="right" content={t(item.name)} className="hidden" key={item.name}>

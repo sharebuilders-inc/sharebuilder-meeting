@@ -6,23 +6,23 @@ import { GoPrimitiveDot } from "react-icons/go";
 import classNames from "@calcom/lib/classNames";
 import type { SVGComponent } from "@calcom/types/SVGComponent";
 
-export const badgeStyles = cva("font-medium inline-flex items-center justify-center rounded gap-x-1", {
+export const badgeStyles = cva("font-medium inline-flex items-center justify-center rounded-lg gap-x-1", {
   variants: {
     variant: {
-      default: "bg-attention text-attention",
-      warning: "bg-attention text-attention",
-      orange: "bg-attention text-attention",
-      success: "bg-success text-success",
-      green: "bg-success text-success",
-      gray: "bg-subtle text-emphasis",
-      blue: "bg-info text-info",
-      red: "bg-error text-error",
-      error: "bg-error text-error",
+      default: "bg-warning-light text-warning-darkest",
+      warning: "bg-warning-light text-warning-darkest",
+      orange: "bg-warning-light text-warning-darkest",
+      success: "bg-success-dark text-white",
+      green: "bg-success-dark text-white",
+      gray: "bg-gray-light text-black",
+      blue: "bg-primary-dark text-white",
+      red: "bg-error-dark text-white",
+      error: "bg-error-dark text-white",
       grayWithoutHover: "bg-gray-100 text-gray-800 dark:bg-darkgray-200 dark:text-darkgray-800",
     },
     size: {
-      sm: "px-1 py-0.5 text-xs leading-3",
-      md: "py-1 px-1.5 text-xs leading-3",
+      sm: "px-2 py-1 text-xs leading-3",
+      md: "py-1 px-2 text-xs leading-3",
       lg: "py-1 px-2 text-sm leading-4",
     },
   },
