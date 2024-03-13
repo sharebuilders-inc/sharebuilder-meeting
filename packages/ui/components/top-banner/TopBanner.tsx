@@ -13,9 +13,9 @@ export type TopBannerProps = {
 };
 
 const variantClassName = {
-  default: "bg-gradient-primary",
-  warning: "bg-orange-400",
-  error: "bg-red-400",
+  default: "bg-gray-light",
+  warning: "bg-warning-light",
+  error: "bg-error",
 };
 
 const defaultIconProps = {
